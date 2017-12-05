@@ -46,6 +46,31 @@ public class simpleTest {
         String ss = s.replace("09-15", "09-31");
         System.out.println(ss);
     }
+    @Test
+    public void test_Str(){
+    	simpleTest.perList("1234567".toCharArray(), 0);
+    }
+    
+    public  static void perList(char[] str,int start){
+    	if(start>=str.length){
+    		//递归结束
+    		return ;
+    	}
+    	if(start==str.length-1){
+    		System.out.println(String.valueOf(str));
+    	}else{
+    		for (int j = start; j < str.length; j++) {
+    			char temp = str[j];
+    			str[j] = str[start];
+    			str[start] = temp;
+    			perList(str, start+1);
+    			temp = str[j];
+    			str[j] = str[start];
+    			str[start] = temp;
+    		}
+    	}
+    	
+    }
 
 
 }
