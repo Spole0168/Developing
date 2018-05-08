@@ -5,7 +5,7 @@ package chapter2;
  */
 public class AccountSync implements Runnable {
     static AccountSync instance = new AccountSync();
-    static volatile int i = 0;
+    static int i = 0;
 
     /**
      * When an object implementing interface <code>Runnable</code> is used
@@ -24,6 +24,7 @@ public class AccountSync implements Runnable {
             /**
              * synchronized的作用是实现线程间的同步,对同步的代码加锁,使得每一次都只能有一个线程进入同步块从而保证线程间的安全性.
              */
+        	//指定加锁对象  
             synchronized (instance) {
                 i++;
             }
@@ -35,8 +36,8 @@ public class AccountSync implements Runnable {
      * @throws InterruptedException
      */
     public static void main(String args[]) throws InterruptedException {
-        Thread thread1 = new Thread(instance);
-        Thread thread2 = new Thread(instance);
+        Thread thread1 = new Thread(new AccountSync());
+        Thread thread2 = new Thread(new AccountSync());
 
         thread1.start();
         thread2.start();
