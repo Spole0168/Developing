@@ -19,6 +19,7 @@ public class FairLock implements Runnable {
                 System.out.println(Thread.currentThread().getName() + "»ñµÃËø");
             } finally {
                 fairLock.unlock();
+                System.out.println(Thread.currentThread().getName() + "ÊÍ·ÅËø");
                 // unfairLock.unlock();
             }
         }
@@ -36,10 +37,12 @@ public class FairLock implements Runnable {
         Thread thread1 = new Thread(r1, "Thread_t1");
         Thread thread2 = new Thread(r1, "Thread_t2");
         Thread thread3 = new Thread(r1, "Thread_t3");
+        Thread thread4 = new Thread(r1, "Thread_t4");
 
         thread1.start();
         thread2.start();
         thread3.start();
+        thread4.start();
     }
 
 }

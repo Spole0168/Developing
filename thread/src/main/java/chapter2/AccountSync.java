@@ -20,13 +20,15 @@ public class AccountSync implements Runnable {
      */
     @Override
     public void run() {
-        for (int j = 0; j < 10000000; j++) {
+        for (int j = 0; j < 1000; j++) {
             /**
              * synchronized的作用是实现线程间的同步,对同步的代码加锁,使得每一次都只能有一个线程进入同步块从而保证线程间的安全性.
              */
         	//指定加锁对象  
             synchronized (instance) {
+            	synchronized (instance) {
                 i++;
+            	}
             }
         }
     }
@@ -36,6 +38,11 @@ public class AccountSync implements Runnable {
      * @throws InterruptedException
      */
     public static void main(String args[]) throws InterruptedException {
+//    	AccountSync asy1 = new AccountSync();
+//    	asy1.i = 30;
+//    	AccountSync asy2 = new AccountSync();
+//    	System.out.println(asy2.i);
+    	
         Thread thread1 = new Thread(new AccountSync());
         Thread thread2 = new Thread(new AccountSync());
 

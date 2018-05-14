@@ -21,10 +21,12 @@ public class IntLock implements Runnable {
                 lock1.lockInterruptibly();
                 Thread.sleep(500);
                 lock2.lockInterruptibly();
+                System.out.println("lock==1 do work"+Thread.currentThread().getId() );
             } else {
                 lock2.lockInterruptibly();
                 Thread.sleep(500);
                 lock1.lockInterruptibly();
+                System.out.println("lock==2 do work"+Thread.currentThread().getId() );
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

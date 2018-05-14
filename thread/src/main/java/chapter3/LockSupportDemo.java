@@ -16,10 +16,11 @@ public class LockSupportDemo {
         }
 
         public void run() {
-            synchronized (u) {
+//            synchronized (u) {
                 System.out.println("in " + getName());
                 LockSupport.park();
-            }
+                System.out.println("out "+getName());
+//            }
         }
     }
 

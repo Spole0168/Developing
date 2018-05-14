@@ -1,5 +1,6 @@
 package chapter3;
 
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -14,6 +15,7 @@ public class ReenterLockCondition implements Runnable {
     public void run() {
 
         try {
+//        	condition.await();
             lock.lock();
             condition.await();
             System.out.println("Thread is going on");
@@ -34,5 +36,6 @@ public class ReenterLockCondition implements Runnable {
         lock.lock();
         condition.signal();
         lock.unlock();
+//        ArrayBlockingQueue<E>
     }
 }

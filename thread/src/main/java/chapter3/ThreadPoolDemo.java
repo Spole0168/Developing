@@ -25,8 +25,11 @@ public class ThreadPoolDemo {
     public static void main(String args[]) {
         MyTask myTask = new MyTask();
         ExecutorService executorService = Executors.newFixedThreadPool(5);
+        System.out.println("executorService init"+System.currentTimeMillis());
         for (int i = 0; i < 20; i++) {
+//        	System.out.println("submit init"+System.currentTimeMillis());
             executorService.submit(myTask);
         }
+        executorService.shutdown();
     }
 }
