@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
  * Created by 13 on 2017/5/6.
  */
 public class AtomicInterArrayDemo {
-    static AtomicIntegerArray array = new AtomicIntegerArray(10);
+    static AtomicIntegerArray array = new AtomicIntegerArray(100);
 
     public static class AddThread implements Runnable {
         @Override
@@ -28,7 +28,7 @@ public class AtomicInterArrayDemo {
         }
         for (int i = 0; i < 10; i++) {
             threads[i].join();
-            System.out.println(array);
         }
+        System.out.println(array);
     }
 }

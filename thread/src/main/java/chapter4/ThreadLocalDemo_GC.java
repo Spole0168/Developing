@@ -51,8 +51,9 @@ public class ThreadLocalDemo_GC {
 
 
     public static void main(String args[]) throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
-        for (int i = 0; i < 100; i++) {
+        int N = 100;
+    	ExecutorService executorService = Executors.newFixedThreadPool(5);
+        for (int i = 0; i < N; i++) {
             executorService.execute(new ParseDate(i));
         }
         countDownLatch.await();
@@ -65,9 +66,9 @@ public class ThreadLocalDemo_GC {
 
         threadLocal = new ThreadLocal<SimpleDateFormat>();
 
-        countDownLatch = new CountDownLatch(100);
+        countDownLatch = new CountDownLatch(N);
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < N; i++) {
             executorService.execute(new ParseDate(i));
         }
 
@@ -75,5 +76,6 @@ public class ThreadLocalDemo_GC {
         Thread.sleep(1000);
         System.gc();
         System.out.println("second GC complete!");
+//        executorService.shutdown();
     }
 }

@@ -12,6 +12,7 @@ public class AtomicStampedReferenceDemo {
 
         for (int i = 0; i < 100; i++) {
             final int timestap = money.getStamp();
+            System.out.println(timestap);
             new Thread() {
                 public void run() {
                     while (true) {
