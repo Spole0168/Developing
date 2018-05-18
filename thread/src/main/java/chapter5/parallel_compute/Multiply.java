@@ -15,8 +15,11 @@ public class Multiply implements Runnable {
             Msg msg = null;
             try {
                 msg = blockingDeque.take();
-                msg.i = msg.j * msg.i;
-                Div.blockingDeque.add(msg);
+                if(null!=msg){
+                	msg.temp = msg.temp * msg.i;
+                	System.out.println("Multiply msg="+msg);
+                	Div.blockingDeque.add(msg);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -1,4 +1,5 @@
-package chapter5;
+package chapter5.future;
+
 
 /**
  * Created by 13 on 2017/5/8.
@@ -11,7 +12,7 @@ public class RealData implements Data {
         //RealData的构造很慢,需要用户等待很久,这里用sleep模拟
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < 10; i++) {
-            stringBuffer.append(param);
+            stringBuffer.append(param+"_"+i);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {

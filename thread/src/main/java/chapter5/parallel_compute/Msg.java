@@ -7,6 +7,13 @@ public class Msg {
 
     public double i;
     public double j;
+    public double temp;
     public String orgStr = null;
+	@Override
+	public String toString() {
+		return "Msg [i=" + i + ", j=" + j + ", temp=" + temp + ", orgStr="
+				+ orgStr + "]";
+	}
 
+    
 }

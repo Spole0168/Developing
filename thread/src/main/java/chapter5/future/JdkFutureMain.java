@@ -1,4 +1,4 @@
-package chapter5;
+package chapter5.future;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -8,11 +8,11 @@ import java.util.concurrent.FutureTask;
 /**
  * Created by 13 on 2017/5/8.
  */
-public class FutureMain {
+public class JdkFutureMain {
 
     public static void main(String args[]) throws ExecutionException, InterruptedException {
         //ππ‘ÏFutureTask
-        FutureTask<String> futureTask = new FutureTask<String>(new RealData2("a"));
+        FutureTask<String> futureTask = new FutureTask<String>(new JdkFuture("a"));
 
         ExecutorService executorService = Executors.newFixedThreadPool(1);
 

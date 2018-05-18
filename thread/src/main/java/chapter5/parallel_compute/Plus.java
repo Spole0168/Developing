@@ -15,9 +15,12 @@ public class Plus implements Runnable {
         while (true) {
             Msg msg = null;
             try {
-                msg = blockingDeque.take();
-                msg.i = msg.j + msg.i;
-                Multiply.blockingDeque.add(msg);
+            	msg = blockingDeque.take();
+            	 if(null!=msg){
+            		msg.temp = msg.j + msg.i;
+            		System.out.println("Plus msg="+msg);
+            		Multiply.blockingDeque.add(msg);
+            	}
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

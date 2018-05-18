@@ -15,8 +15,11 @@ public class Div implements Runnable {
             Msg msg = null;
             try {
                 msg = blockingDeque.take();
-                msg.i = msg.i / 2;
-                System.out.println(msg.orgStr + "=" + msg.i);
+                if(null!=msg){
+	                msg.temp = msg.temp / 2;
+	                System.out.println("Div msg="+msg);
+	                System.out.println(msg.orgStr + "=" + msg.temp);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

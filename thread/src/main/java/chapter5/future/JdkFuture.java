@@ -1,14 +1,14 @@
-package chapter5;
+package chapter5.future;
 
 import java.util.concurrent.Callable;
 
 /**
  * Created by 13 on 2017/5/8.
  */
-public class RealData2 implements Callable<String> {
+public class JdkFuture implements Callable<String> {
     private String data;
 
-    public RealData2(String data) {
+    public JdkFuture(String data) {
         this.data = data;
     }
 
